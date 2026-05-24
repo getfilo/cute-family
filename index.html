@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Cute Family
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="bg"></div>
+
+    <!-- LOGIN -->
+
+    <div
+        id="loginScreen"
+        class="loginScreen"
+    >
+
+        <div class="loginCard">
+
+            <h1>
+                Cute Family
+            </h1>
+
+            <p>
+                Safe Family Voice Calling
+            </p>
+
+            <input
+                id="username"
+                placeholder="Username"
+            >
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Password"
+            >
+
+            <button onclick="login()">
+                Login
+            </button>
+
+            <p id="loginError"></p>
+
+        </div>
+
+    </div>
+
+    <!-- APP -->
+
+    <div
+        id="app"
+        class="app hidden"
+    >
+
+        <header>
+
+            <div>
+
+                <h1>
+                    Cute Family
+                </h1>
+
+                <p id="me"></p>
+
+            </div>
+
+            <button
+                class="logoutBtn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </header>
+
+        <div class="layout">
+
+            <!-- USERS -->
+
+            <section class="usersPanel">
+
+                <h2>
+                    Family Members
+                </h2>
+
+                <ul id="users"></ul>
+
+            </section>
+
+            <!-- CALL PANEL -->
+
+            <section class="callPanel">
+
+                <h2>
+                    Voice Call
+                </h2>
+
+                <div class="voiceArea">
+
+                    <div class="pulse"></div>
+
+                    <h3 id="status">
+                        Ready
+                    </h3>
+
+                </div>
+
+                <audio
+                    id="remoteAudio"
+                    autoplay
+                ></audio>
+
+                <div class="controls">
+
+                    <button onclick="toggleMic()">
+                        Toggle Mic
+                    </button>
+
+                    <button
+                        class="endBtn"
+                        onclick="endCall()"
+                    >
+                        End Call
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+    <!-- INCOMING CALL -->
+
+    <div
+        id="incomingPopup"
+        class="incomingPopup hidden"
+    >
+
+        <div class="popupCard">
+
+            <h2>
+                Incoming Call
+            </h2>
+
+            <p id="callerName">
+                Someone is calling...
+            </p>
+
+            <div class="popupButtons">
+
+                <button
+                    class="acceptBtn"
+                    onclick="acceptCall()"
+                >
+                    Accept
+                </button>
+
+                <button
+                    class="rejectBtn"
+                    onclick="rejectCall()"
+                >
+                    Reject
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RINGTONE -->
+
+    <audio
+        id="ringtone"
+        loop
+        src="assets/ringtone.mp3"
+    ></audio>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
